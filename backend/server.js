@@ -9,7 +9,6 @@ const mosqueRoutes = require('./routes/mosques')
 app.use(express.json());
 
 //Connect mongo database
-connectDB();
 
 // middleware
 app.use(express.json())
@@ -23,4 +22,6 @@ app.use((req, res, next) => {
 app.use('/api/mosques', mosqueRoutes)
 
 const port = process.env.PORT || 4000;
+connectDB().then(() => {
 app.listen(port, () => console.log(`Server running on port ${port}`))
+})
