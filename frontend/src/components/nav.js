@@ -4,8 +4,11 @@ const Nav = () => {
     return (
         <header> 
             <div className="container">
-                <Link to="/">
-                    <h1>Jamaat</h1>
+                <Link to="/" style={{ 
+                    textDecoration: 'none',
+
+             }}>
+                    <h1 className='jumaat-title'>jamaat</h1>
                 </Link>
             </div>
     

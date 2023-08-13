@@ -1,3 +1,7 @@
+@font-face {
+  font-family: ValueSerif;
+  src: url(../public/valserif.ttf)
+}
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -6,14 +10,17 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-h1{
+
+.jumaat-title {
+  font-family: ValueSerif;
   margin: 0%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 5cm;
-  font-size: 60px;
+  margin-top: 12px;
+  margin-left: 24px;
+  color: #F2B625;
+  font-size: 36px;
+  text-decoration: none;
 }
+
 .searchBar{
   display: flex;
   justify-content: center;
@@ -24,21 +31,22 @@ h1{
 input{
   /* width: 400px; */
   height: 30px;
-  border: 5px solid round;
   border-radius: 10px;
+  font-family: ValueSerif;
 }
 button{
   height: 38px;
   margin-left: 20px;
-  background: rgb(238, 29, 82);
+  background: #004225;
   color: white;
-  font-family: sans-serif;
+  border: none;
+  font-family: ValueSerif;
   width: 60px;
   /* height: 45px;  */
   border-radius: 10px;
 }
 .main{
-  background-color: black ;
+  /* background-color: black ; */
   height: 100vh;
   
 }
@@ -49,4 +57,31 @@ code {
 
 .rand {
   color: white
+}
+.results {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 100px;
+}
+.mosque-details {
+  background: white;
+  border-radius: 4px;
+  margin: 20px auto;
+  padding: 20px;
+  position: relative;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05);
+
+.mosque-details h4 {
+  margin: 0 0 10px 0;
+  font-size: 1.2em;
+  color: var(--primary);
+}
+
+.mosque-details p {
+  margin: 0;
+  font-size: 0.9em;
+  color: #555;
+
+}
+  
 }
