@@ -2,7 +2,9 @@ const express = require('express')
 // const Mosque = require('../models/mosqueModel')
 const {addMosque,
     getAllMosques,
-    getMosque
+    getMosque,
+    deleteMosque,
+    updateMosque
 } = require('../controllers/mosqueController')
 
 const router = express.Router()
@@ -13,11 +15,7 @@ router.get('/:id', getMosque)
 
 router.post('/', addMosque)
 
-router.delete('/:id', (req, res) => {
-    res.json({mssg: 'DELETE a mosque'})
-})
+router.delete('/:id', deleteMosque)
 
-router.patch('/:id', (req, res) => {
-    res.json({mssg: 'UPDATE a mosque'})
-})
+router.patch('/:id', updateMosque)
 module.exports = router

@@ -36,12 +36,42 @@ const addMosque = async (req, res) => {
 
 
 // delete workout
+const deleteMosque = async (req, res) => {
+    const { id } = req.params
+    if(!mongoose.Types.ObjectId.isValid(id)){
+        return res.status(404).json({error: "Mosque not found"})
+    }
+
+    const mosque = await Mosque.findOneAndDelete({_id: id})
+
+    if(!mosque) {
+        return res.status(404).json({error: "Mosque not found"})
+    }
+    res.status(200).json(mosque)
+}
 
 // update mosque
+const updateMosque = async (req, res) => {
+    const { id } = req.params
+    if(!mongoose.Types.ObjectId.isValid(id)){
+        return res.status(404).json({error: "Mosque not found"})
+    }
+
+    const mosque = await Mosque.findOneAndUpdate({_id: id}, {
+        ...req.body
+    })
+    if(!mosque) {
+        return res.status(404).json({error: "Mosque not found"})
+    }
+    res.status(200).json(mosque)
+
+ }
 
 
 module.exports = {
     addMosque,
     getAllMosques,
-    getMosque
+    getMosque,
+    deleteMosque,
+    updateMosque
 }
