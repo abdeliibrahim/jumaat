@@ -1,7 +1,8 @@
+import Search from '../components/search'
 const Home = () => {
 return (
     <div className="home">
-        <h2>Home</h2>
+        <Search />
     </div>
 )
 }

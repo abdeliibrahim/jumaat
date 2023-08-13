@@ -5,11 +5,10 @@ const Nav = () => {
         <header> 
             <div className="container">
                 <Link to="/">
-                    <h1>jamaat</h1>
+                    <h1>Jamaat</h1>
                 </Link>
-
-
             </div>
+    
         </header>
     )
 }

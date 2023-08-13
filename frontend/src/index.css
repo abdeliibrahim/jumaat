@@ -6,7 +6,42 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+h1{
+  margin: 0%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 5cm;
+  font-size: 60px;
+}
+.searchBar{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top:50px ;
+  height: 60px;
+}
+input{
+  /* width: 400px; */
+  height: 30px;
+  border: 5px solid round;
+  border-radius: 10px;
+}
+button{
+  height: 38px;
+  margin-left: 20px;
+  background: rgb(238, 29, 82);
+  color: white;
+  font-family: sans-serif;
+  width: 60px;
+  /* height: 45px;  */
+  border-radius: 10px;
+}
+.main{
+  background-color: black ;
+  height: 100vh;
+  
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
