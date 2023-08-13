@@ -2,6 +2,7 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom'
 
 // pages / components
 import Home from './pages/home'
+import Results from './pages/results';
 import Nav from './components/nav'
 
 
@@ -16,8 +17,11 @@ function App() {
           <Route 
           path = "/"
           element= {<Home />}>
-
           </Route>
+          <Route
+          path = "/results"
+          element= {<Results />}>
+            </Route>
         </Routes>
 
         </div>
