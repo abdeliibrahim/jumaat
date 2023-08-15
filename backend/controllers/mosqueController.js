@@ -22,11 +22,16 @@ const getMosque = async (req, res) => {
 
 // add mosque
 const addMosque = async (req, res) => {
-    const {title, address} = req.body
+    // const {title, address} = req.body
+    const mosquesData = req.body;
     
     try {
-        const mosque = await Mosque.create({title, address})
-        res.status(200).json(mosque)
+        // const mosque = await Mosque.create({title, address})
+        const createdMosques = await Promise.all(mosquesData.map(async mosque => {
+            const { title, address } = mosque;
+            const createdMosque = await Mosque.create({ title, address });
+            return createdMosque; }));
+        res.status(200).json(createdMosques)
 
     } catch (error) {
         res.status(400).json({error: error.message})
