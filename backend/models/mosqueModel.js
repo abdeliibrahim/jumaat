@@ -11,6 +11,11 @@ const mosqueSchema = new Schema({
     address: {
         type: String,
         required: true
+    },
+
+    gUrl: {
+        type: String,
+        required: true
     }
 
 })

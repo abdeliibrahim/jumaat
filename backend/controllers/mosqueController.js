@@ -28,8 +28,8 @@ const addMosque = async (req, res) => {
     try {
         // const mosque = await Mosque.create({title, address})
         const createdMosques = await Promise.all(mosquesData.map(async mosque => {
-            const { title, address } = mosque;
-            const createdMosque = await Mosque.create({ title, address });
+            const { title, address, gUrl } = mosque;
+            const createdMosque = await Mosque.create({ title, address, gUrl });
             return createdMosque; }));
         res.status(200).json(createdMosques)
 

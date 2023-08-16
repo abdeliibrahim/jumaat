@@ -6,7 +6,7 @@ async function searchMosques(zipcode) {
     const start = Date.now();
     // const browser = await puppeteer.launch(); 
     const browser = await puppeteer.launch({
-        headless: false,
+       // headless: false,
         // headless: "new",
         // devtools: true,
         executablePath: "", // your path here
@@ -29,7 +29,7 @@ async function searchMosques(zipcode) {
           await new Promise((resolve, reject) => {
             var totalHeight = 0;
             var distance = 1000;
-            var scrollDelay = 3000;
+            var scrollDelay = 0;
   
             var timer = setInterval(async () => {
               var scrollHeightBefore = wrapper.scrollHeight;
@@ -90,7 +90,7 @@ async function searchMosques(zipcode) {
       // get a tag where data-value="Website"
       const website = parent.find('a[data-value="Website"]').attr("href");
       // find a div that includes the class fontHeadlineSmall
-      const storeName = parent.find("div.fontHeadlineSmall").text();
+      const title = parent.find("div.fontHeadlineSmall").text();
       // find span that includes class fontBodyMedium
       const ratingText = parent
         .find("span.fontBodyMedium > span")
@@ -104,25 +104,26 @@ async function searchMosques(zipcode) {
       const lastOfLast = lastChild.children().last();
 
       buisnesses.push({
-        placeId: `ChI${url?.split("?")?.[0]?.split("ChI")?.[1]}`,
+        title,
+        // placeId: `ChI${url?.split("?")?.[0]?.split("ChI")?.[1]}`,
         address: firstOfLast?.text()?.split("·")?.[1]?.trim(),
-        category: firstOfLast?.text()?.split("·")?.[0]?.trim(),
-        phone: lastOfLast?.text()?.split("·")?.[1]?.trim(),
-        googleUrl: url,
-        bizWebsite: website,
-        storeName,
-        ratingText,
-        stars: ratingText?.split("stars")?.[0]?.trim()
-          ? Number(ratingText?.split("stars")?.[0]?.trim())
-          : null,
-        numberOfReviews: ratingText
-          ?.split("stars")?.[1]
-          ?.replace("Reviews", "")
-          ?.trim()
-          ? Number(
-              ratingText?.split("stars")?.[1]?.replace("Reviews", "")?.trim()
-            )
-          : null,
+        // category: firstOfLast?.text()?.split("·")?.[0]?.trim(),
+        // phone: lastOfLast?.text()?.split("·")?.[1]?.trim(),
+        gUrl: url,
+        // bizWebsite: website,
+        
+        // ratingText,
+        // stars: ratingText?.split("stars")?.[0]?.trim()
+        //   ? Number(ratingText?.split("stars")?.[0]?.trim())
+        //   : null,  // add later
+        // numberOfReviews: ratingText
+        //   ?.split("stars")?.[1]
+        //   ?.replace("Reviews", "")
+        //   ?.trim()
+        //   ? Number(
+        //       ratingText?.split("stars")?.[1]?.replace("Reviews", "")?.trim()
+        //     )
+        //   : null,
       });
     });
     const end = Date.now();

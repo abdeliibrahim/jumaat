@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 const Search = () => {
-    const navigate = useNavigate();
+const navigate = useNavigate();
     const handleSubmit = (event) => {
         
         event.preventDefault(); // Prevents default form submission behavior
