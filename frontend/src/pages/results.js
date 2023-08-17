@@ -2,13 +2,15 @@ import { useEffect, useState } from "react"
 
 // components
 import MosqueDetails from '../components/mosqueDetails'
+import {zipcode} from '../components/zipUtility'
+
 const Results = () => {
     const [mosques, setMosques] = useState(null)
 
     useEffect(() => {
        const fetchMosques = async () => {
        
-        const zipcode = "95035"
+        // const zipcode = "95035"
         const scrape = await fetch(
             '/api/mosques/scrape?zipcode=' + zipcode)
         const scrapeJSON = await scrape.json()

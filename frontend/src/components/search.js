@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import {Link} from 'react-router-dom'
 import { useNavigate } from 'react-router-dom';
-
+import { setZipcode } from './zipUtility';
 
 
 const Search = () => {
@@ -11,6 +11,7 @@ const navigate = useNavigate();
     const handleSubmit = (event) => {
         
         event.preventDefault(); // Prevents default form submission behavior
+        setZipcode(zipcode);
         navigate('/results'); // Redirect to new page
       }
     return (
