@@ -13,7 +13,7 @@ async function searchMosques(zipcode) {
       });
     const page = await browser.newPage();
 
-    const searchUrl = `https://www.google.com/maps/search/mosque+near+${zipcode}`;
+    const searchUrl = `https://www.google.com/maps/search/10+mosques+near+${zipcode}`;
     try {
         await page.goto(
           searchUrl
