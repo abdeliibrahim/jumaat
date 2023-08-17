@@ -64,6 +64,7 @@ code {
   gap: 100px;
 }
 .mosque-details {
+  
   background: white;
   border-radius: 4px;
   margin: 20px auto;
@@ -71,10 +72,11 @@ code {
   position: relative;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05);
 
-.mosque-details h4 {
+.mosque-details a {
   margin: 0 0 10px 0;
   font-size: 1.2em;
   color: var(--primary);
+  text-decoration: none;
 }
 
 .mosque-details p {

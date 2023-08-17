@@ -29,7 +29,7 @@ async function searchMosques(zipcode) {
           await new Promise((resolve, reject) => {
             var totalHeight = 0;
             var distance = 1000;
-            var scrollDelay = 1000;
+            var scrollDelay = 0;
   
             var timer = setInterval(async () => {
               var scrollHeightBefore = wrapper.scrollHeight;

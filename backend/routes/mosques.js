@@ -5,7 +5,8 @@ const {addMosque,
     getMosque,
     deleteMosque,
     updateMosque,
-    scrapeController
+    scrapeController,
+    clearDatabase
 } = require('../controllers/mosqueController')
 // const { scrapeController } = require('../controllers/scrape');
 
@@ -18,8 +19,10 @@ router.get('/scrape', scrapeController);
 router.get('/:id', getMosque)
 
 router.post('/', addMosque)
+router.post('/clear', clearDatabase);
 
 router.delete('/:id', deleteMosque)
 
 router.patch('/:id', updateMosque)
+
 module.exports = router

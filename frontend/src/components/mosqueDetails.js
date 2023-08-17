@@ -1,7 +1,7 @@
 const MosqueDetails = ({ mosque }) => {
 return (
     <div className="mosque-details">
-        <h4>{mosque.title}</h4>
+        <a href={mosque.gUrl}>{mosque.title}</a>
         <p><strong>Address: </strong>{mosque.address}</p>
     </div>
 )

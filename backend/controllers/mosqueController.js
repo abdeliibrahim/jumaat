@@ -85,6 +85,15 @@ const updateMosque = async (req, res) => {
 
 
 
+const clearDatabase = async (req, res) => {
+    try {
+        await Mosque.deleteMany({}); // Delete all documents from the Mosque collection
+        res.status(200).json({ message: 'Database cleared successfully.' });
+    } catch (error) {
+        res.status(500).json({ error: 'An error occurred while clearing the database.' });
+    }
+};
+
 
 
 module.exports = {
@@ -93,5 +102,6 @@ module.exports = {
     getMosque,
     deleteMosque,
     updateMosque,
-    scrapeController
+    scrapeController,
+    clearDatabase
 }

@@ -7,11 +7,30 @@ const Results = () => {
 
     useEffect(() => {
        const fetchMosques = async () => {
-        const response = await fetch('/api/mosques')
+       
+        const zipcode = "95035"
         const scrape = await fetch(
-            '/api/mosques/scrape?zipcode=95035')
+            '/api/mosques/scrape?zipcode=' + zipcode)
         const scrapeJSON = await scrape.json()
         console.log(scrapeJSON)
+        await fetch('/api/mosques/clear', {
+        method: 'POST',
+      });
+
+        
+        const postResponse = await fetch('/api/mosques', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(scrapeJSON)
+        });
+
+        if (!postResponse.ok) {
+            throw new Error('Error posting scraped data');
+        }
+
+        const response = await fetch('/api/mosques')
         const json = await response.json()
 
         if (response.ok) {
