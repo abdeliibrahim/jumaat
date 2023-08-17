@@ -1,6 +1,11 @@
 @font-face {
   font-family: ValueSerif;
-  src: url(../public/valserif.ttf)
+  src: url(../public/valserif.ttf);
+}
+
+@font-face {
+  font-family: Euc;
+  src: url(../public/eucsem.ttf)
 }
 body {
   margin: 0;
@@ -76,9 +81,13 @@ code {
   margin: 0 0 10px 0;
   font-size: 1.2em;
   color: var(--primary);
+
+}
+.hyperlink {
+  font-family: Euc;
+  color: #004225;
   text-decoration: none;
 }
-
 .mosque-details p {
   margin: 0;
   font-size: 0.9em;
