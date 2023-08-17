@@ -1,14 +1,16 @@
 import { useEffect, useState } from "react"
-
+import {PropagateLoader} from 'react-spinners'
 // components
 import MosqueDetails from '../components/mosqueDetails'
 import {zipcode} from '../components/zipUtility'
 
 const Results = () => {
     const [mosques, setMosques] = useState(null)
+    const [loading, setLoading] = useState(false)
 
     useEffect(() => {
        const fetchMosques = async () => {
+        setLoading(true)
        
         // const zipcode = "95035"
         const scrape = await fetch(
@@ -36,6 +38,7 @@ const Results = () => {
         const json = await response.json()
 
         if (response.ok) {
+            setLoading(false)
             setMosques(json)
         }
        }   
@@ -44,12 +47,17 @@ const Results = () => {
 
     return (
         <div className="results">
+            {loading ? (
+                <div className="loader">
+                    <PropagateLoader color="#004225" />
+                </div>
+            ) : (
            <div className="mosques">
             {mosques && mosques.map((mosques) => (
                 <MosqueDetails key = {mosques._id} mosque = {mosques} />
             ))}
            </div>
-
+            )}
         </div>
     )
     }
