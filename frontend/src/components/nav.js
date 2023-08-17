@@ -8,7 +8,7 @@ const Nav = () => {
                     textDecoration: 'none',
 
              }}>
-                    <h1 className='jumaat-title'>jamaat</h1>
+                    <h1 className='jumaat-title'>jumaat</h1>
                 </Link>
             </div>
     
