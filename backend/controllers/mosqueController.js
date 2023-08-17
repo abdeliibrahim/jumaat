@@ -1,5 +1,6 @@
 const Mosque = require('../models/mosqueModel')
 const mongoose = require('mongoose')
+const {searchMosques} = require('./scrape')
 
 // get all mosques
 const getAllMosques = async (req, res) => {
@@ -71,6 +72,19 @@ const updateMosque = async (req, res) => {
     res.status(200).json(mosque)
 
  }
+ const scrapeController = async (req, res) => {
+    const zipcode = req.query.zipcode; // Get the zipcode from the query parameter
+
+    try {
+        const scrapedData = await searchMosques(zipcode);
+        res.status(200).json(scrapedData);
+    } catch (error) {
+        res.status(500).json({ error: 'An error occurred while scraping data.' });
+    }
+};
+
+
+
 
 
 module.exports = {
@@ -78,5 +92,6 @@ module.exports = {
     getAllMosques,
     getMosque,
     deleteMosque,
-    updateMosque
+    updateMosque,
+    scrapeController
 }

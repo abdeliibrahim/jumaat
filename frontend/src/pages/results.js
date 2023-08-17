@@ -8,6 +8,10 @@ const Results = () => {
     useEffect(() => {
        const fetchMosques = async () => {
         const response = await fetch('/api/mosques')
+        const scrape = await fetch(
+            '/api/mosques/scrape?zipcode=95035')
+        const scrapeJSON = await scrape.json()
+        console.log(scrapeJSON)
         const json = await response.json()
 
         if (response.ok) {

@@ -6,7 +6,7 @@ async function searchMosques(zipcode) {
     const start = Date.now();
     // const browser = await puppeteer.launch(); 
     const browser = await puppeteer.launch({
-       // headless: false,
+    //    headless: false,
         // headless: "new",
         // devtools: true,
         executablePath: "", // your path here
@@ -29,7 +29,7 @@ async function searchMosques(zipcode) {
           await new Promise((resolve, reject) => {
             var totalHeight = 0;
             var distance = 1000;
-            var scrollDelay = 0;
+            var scrollDelay = 1000;
   
             var timer = setInterval(async () => {
               var scrollHeightBefore = wrapper.scrollHeight;
@@ -133,13 +133,17 @@ async function searchMosques(zipcode) {
     return buisnesses;
   }
 
-  async function main() {
-    const zipcode = '94531'; // Replace with the desired zipcode
-    const mosques = await searchMosques(zipcode);
-    console.log(mosques); // Print the scraped data
-  }
-  
-  main();
+//   const scrapeController = async (req, res) => {
+//     const zipcode = req.query.zipcode; // Get the zipcode from the query parameter
+
+//     try {
+//         const scrapedData = await searchMosque(zipcode);
+//         res.status(200).json(scrapedData);
+//     } catch (error) {
+//         res.status(500).json({ error: 'An error occurred while scraping data.' });
+//     }
+// };
+
 
 
 module.exports = {searchMosques}

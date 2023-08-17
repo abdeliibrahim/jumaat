@@ -4,12 +4,16 @@ const {addMosque,
     getAllMosques,
     getMosque,
     deleteMosque,
-    updateMosque
+    updateMosque,
+    scrapeController
 } = require('../controllers/mosqueController')
+// const { scrapeController } = require('../controllers/scrape');
 
 const router = express.Router()
 
 router.get('/', getAllMosques)
+
+router.get('/scrape', scrapeController);
 
 router.get('/:id', getMosque)
 
